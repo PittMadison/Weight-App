@@ -1,0 +1,20 @@
+.Header {
+    width: 97%;
+    padding: 1%;
+    text-align: center;
+    border: .1rem solid #26381f;
+    margin-top: 0;
+    font-family: cursive;
+    background-image: url('./img/Akti_Logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.PlusButton {
+    display: block;
+    margin-left: auto;
+    font-family: inherit;
+    border-radius: 10rem;
+    color: #26381f;
+}
