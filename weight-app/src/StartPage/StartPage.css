@@ -8,7 +8,7 @@
     z-index: 11;
 }
 .StartPageContainer--moveRight {
-    animation: moveRight 1.5s forwards ease-in;
+    animation: moveRightStart 1.5s forwards ease-in;
 }
 .StartPageContainer__button{
     position: absolute;
@@ -30,7 +30,7 @@
     color: #fff;
 }
 
-@keyframes moveRight {
+@keyframes moveRightStart {
     from {
         left: 0rem;
     }

@@ -9,7 +9,9 @@
 .StartInputPage--moveLeft {
     animation: moveLeft 1s forwards ease-in;
 }
-
+.StartInputPage--moveRight {
+    animation: moveRight 1s forwards ease-in;
+}
 .StartInputPage__Text {
     width: 97%;
     padding: 1%;
@@ -73,5 +75,13 @@
     }
     to {
         left: -30rem;
+    }
+}
+@keyframes moveRight {
+    from {
+        left: -30rem;
+    }
+    to {
+        left: 0rem;
     }
 }

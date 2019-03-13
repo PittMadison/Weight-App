@@ -3,7 +3,7 @@ import './StartInputPage.css';
 
 const StartInputPage = ({modal, currentWeight, desirableWeight, currentHeight, collectData, inputChange, toggleModal}) => {
     return (
-        <div className={modal?'StartInputPage':'StartInputPage StartInputPage--moveLeft'}>
+        <div className={modal?'StartInputPage StartInputPage--moveRight':'StartInputPage StartInputPage--moveLeft'}>
             <p className='StartInputPage__Text'><span className='StartInputPageButton--name'>Save weight</span></p>
             <div className="StartInputPage__Container">
                 <form onSubmit={collectData} action="submit" className="StartInputPageContainer__Form">

@@ -1,10 +1,10 @@
 import React from 'react';
 import './Header.css';
 
-const Header = () => {
+const Header = ({toggleModal}) => {
     return (
         <header className="Header">
-        <button className="PlusButton">+</button>
+        <button onClick={toggleModal} className="PlusButton">+</button>
         </header>
     );
 };

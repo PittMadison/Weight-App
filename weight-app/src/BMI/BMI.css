@@ -1,0 +1,19 @@
+.BMIWeight {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+.BMI__title {
+    font-family: cursive;
+    text-align: center;
+    color:  #26381f;
+    margin-top: 1.5rem;
+}
+
+.speedometer {
+    margin: 0 auto;
+    display: block;
+    margin-top: 1.5rem;
+}
+
