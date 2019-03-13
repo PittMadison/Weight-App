@@ -1,0 +1,39 @@
+.StartPageContainer {
+    background-image: url('./img/StartPage__BG.png');
+    background-size: cover;
+    background-position-x: -.75rem;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.StartPageContainer--moveRight {
+    animation: moveRight 1.5s forwards ease-in;
+}
+.StartPageContainer__button{
+    position: absolute;
+    top: 57.5%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color:  #606263;
+    background-color: #fff;
+    border: .1rem solid #afcb08;
+    border-radius: 7rem;
+    padding: .5rem .5rem;
+    font-family: cursive;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.StartPageContainer__button:hover {
+    background-color: #606263;
+    color: #fff;
+}
+
+@keyframes moveRight {
+    from {
+        left: 0rem;
+    }
+    to {
+        left: 30rem;
+    }
+}
