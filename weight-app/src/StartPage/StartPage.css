@@ -2,9 +2,10 @@
     background-image: url('./img/StartPage__BG.png');
     background-size: cover;
     background-position-x: -.75rem;
-    width: 100vw;
-    height: 100vh;
-    position: relative;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 11;
 }
 .StartPageContainer--moveRight {
     animation: moveRight 1.5s forwards ease-in;

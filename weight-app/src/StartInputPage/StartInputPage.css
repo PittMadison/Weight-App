@@ -1,0 +1,77 @@
+.StartInputPage {
+    background-color: #eefc9f;
+    height: 100vh;
+    position: absolute;
+    z-index: 9;
+    left: 0;
+}
+
+.StartInputPage--moveLeft {
+    animation: moveLeft 1s forwards ease-in;
+}
+
+.StartInputPage__Text {
+    width: 97%;
+    padding: 1%;
+    text-align: center;
+    border: .1rem solid #26381f;
+    margin-top: 0;
+    font-family: cursive;
+}
+.StartInputPage__Text:before {
+    content: '<';
+    display: inline-block;
+    
+}
+.StartInputPageButton--name {
+    margin-left: 1rem;
+}
+
+.StartInputPageContainer__Form {
+    margin-top: 3rem;
+}
+
+.StartInputPageContainer__Form label {
+    display: flex;
+    justify-content: space-between;
+    width: 97%;
+    margin: 0 auto;
+    font-family: cursive;
+
+}
+
+.StartInputPageContainer__Form label:not(:first-child) {
+    margin-top: 1rem;
+}
+
+
+.StartInputPageContainer__Input {
+    margin-left: auto;
+    width: 35%;
+}
+
+.StartInputPageContainer__Button {
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+    font-family: cursive;
+
+}
+
+.StartInputPage__Container button{
+    margin-top: .5rem;
+}
+
+
+.StartInputPageContainer__Form button{
+    margin-top: 3rem;
+}
+
+@keyframes moveLeft {
+    from {
+        left: 0rem;
+    }
+    to {
+        left: -30rem;
+    }
+}
