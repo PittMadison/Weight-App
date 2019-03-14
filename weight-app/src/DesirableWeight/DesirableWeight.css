@@ -1,4 +1,8 @@
 .DesirableWeight {
     background-color: rgba(9, 255, 0, 0.3);
-    padding: 20%;
+    padding: 1%;
+    width: 45%;
+    color: #26381f;
+    text-align: center;
+    font-family: cursive;
 }

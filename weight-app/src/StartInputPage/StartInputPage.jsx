@@ -1,7 +1,7 @@
 import React from 'react';
 import './StartInputPage.css';
 
-const StartInputPage = ({modal, currentWeight, desirableWeight, currentHeight, collectData, inputChange, toggleModal}) => {
+const StartInputPage = ({modal, currentWeight, desirableWeight, currentHeight, collectData, inputChange, toggleModal, dataArr}) => {
     return (
         <div className={modal?'StartInputPage StartInputPage--moveRight':'StartInputPage StartInputPage--moveLeft'}>
             <p className='StartInputPage__Text'><span className='StartInputPageButton--name'>Save weight</span></p>
@@ -18,7 +18,7 @@ const StartInputPage = ({modal, currentWeight, desirableWeight, currentHeight, c
                     </label>
                     <button onClick={toggleModal} type='submit' className="StartInputPageContainer__Button">Save</button>
                 </form>
-                    <button disabled type='button'className="StartInputPageContainer__Button">Cancel</button>
+                    <button onClick={toggleModal} disabled={dataArr.length?false:true} type='button'className="StartInputPageContainer__Button">Cancel</button>
             </div>
         </div>
     );

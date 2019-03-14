@@ -6,6 +6,7 @@
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
+    "react-d3-graphics": "^0.1.2",
     "react-d3-speedometer": "^0.4.2",
     "react-dom": "^16.8.4",
     "react-router-dom": "^4.3.1",

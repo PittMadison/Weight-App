@@ -3,4 +3,5 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
 }

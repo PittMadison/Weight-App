@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import moment from 'moment';
 import './App.css';
 import StartPage from '../StartPage/StartPage';
 import StartInputPage from '../StartInputPage/StartInputPage';
 import BMI from '../BMI/BMI'
 import Header from '../Header/Header';
+
 
 class App extends Component {
 
@@ -17,6 +17,18 @@ class App extends Component {
     currentHeight: '',
     BM: 0
   }
+
+  componentDidMount () {
+    let userData = JSON.parse(localStorage.getItem('userWeight'));
+    if (userData!==null){
+    this.setState({
+      dataArr: [userData],
+      BM: userData.BM
+    })
+  }   
+    
+  }
+
   // start page ==========================
   startWeighing = () => {
     this.setState({
@@ -44,15 +56,17 @@ class App extends Component {
       desirableWeight: this.state.desirableWeight,
       currentHeight: this.state.currentHeight,
       id: Date.now(),
+      BM: this.countBMI(this.state.currentWeight, this.state.currentHeight)
     }
 
     this.setState (prev=>({
       BM: this.countBMI(this.state.currentWeight, this.state.currentHeight),
-      dataArr: [...prev.dataArr, newObj ],
+      dataArr: [newObj ],
       currentWeight: '',
       desirableWeight: '',
       currentHeight: '',
     }))
+    localStorage.setItem('userWeight', JSON.stringify(newObj))
   }
 
   toggleModal = () => {
@@ -68,17 +82,16 @@ class App extends Component {
     return BMI;
   }
 
-  //<h1>{dataArr.length>0?moment(dataArr[dataArr.length-1].id).format('DD.MM.YYYY'):'Sorry, no data found'}</h1>
 
   render() {
-    const {start, modal, currentWeight, desirableWeight, currentHeight, BM} = this.state;
+    const {start, modal, currentWeight, desirableWeight, currentHeight, BM, dataArr} = this.state;
      
     return (
       <div className='App'>
         <StartPage startWeighing={this.startWeighing} start={start}></StartPage>
-        <StartInputPage modal={modal} toggleModal={this.toggleModal} currentWeight={currentWeight} desirableWeight={desirableWeight} currentHeight={currentHeight} collectData={this.collectData} inputChange={this.inputChange}/>
+        <StartInputPage dataArr={dataArr} modal={modal} toggleModal={this.toggleModal} currentWeight={currentWeight} desirableWeight={desirableWeight} currentHeight={currentHeight} collectData={this.collectData} inputChange={this.inputChange}/>
         <Header toggleModal={this.toggleModal}/>
-        <BMI BM={BM}/>
+        <BMI BM={BM} dataArr={dataArr}/>
       </div>
     );
   }
