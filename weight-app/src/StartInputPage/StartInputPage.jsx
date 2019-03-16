@@ -4,9 +4,9 @@ import './StartInputPage.css';
 const StartInputPage = ({modal, currentWeight, desirableWeight, currentHeight, collectData, inputChange, toggleModal, dataArr}) => {
     return (
         <div className={modal?'StartInputPage StartInputPage--moveRight':'StartInputPage StartInputPage--moveLeft'}>
-            <p className='StartInputPage__Text'><span className='StartInputPageButton--name'>Save weight</span></p>
+            <p className='StartInputPage__Text'><span className='StartInputPageButton--name'>Start new weight challenge</span></p>
             <div className="StartInputPage__Container">
-                <form onSubmit={collectData} action="submit" className="StartInputPageContainer__Form">
+                <form onSubmit={collectData} data-name='modal' action="submit" className="StartInputPageContainer__Form">
                     <label htmlFor="userWeight"><span>Your current weight(kg):</span>
                     <input onChange={inputChange} type="text" name='currentWeight' value={currentWeight} className="StartInputPageContainer__Input"/>
                     </label>

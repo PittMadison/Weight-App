@@ -4,6 +4,7 @@
     position: absolute;
     z-index: 9;
     left: 0;
+    width: 100vw;
 }
 
 .StartInputPage--moveLeft {

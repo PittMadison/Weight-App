@@ -1,24 +1,26 @@
 import React from 'react';
 import './Weight.css';
+import DayPickerInput from 'rea'
 
-const Weight = ({intermediate, currentWeight, desirableWeight, currentHeight, collectData, inputChange, toggleModal, dataArr}) => {
+const Weight = ({intermediate, interWeight, date, time, collectData, inputChange, toggleModal}) => {
+    
     return (
         <div className={intermediate?'WeightInputPage WeightInputPage--moveRight':'WeightInputPage WeightInputPage--moveLeft'}>
-            <p className='WeightInputPage__Text'><span className='WeightInputPageButton--name'>Save weight</span></p>
+            <p className='WeightInputPage__Text'><span className='WeightInputPageButton--name'>Set new progress breakpoint</span></p>
             <div className="WeightInputPage__Container">
-                <form onSubmit={collectData} action="submit" className="WeightInputPageContainer__Form">
-                    <label htmlFor="userWeight"><span>Your current weight(kg):</span>
-                    <input onChange={inputChange} type="text" name='currentWeight' value={currentWeight} className="WeightInputPageContainer__Input"/>
+                <form onSubmit={collectData} data-name='intermediate' action="submit" className="WeightInputPageContainer__Form">
+                    <label htmlFor="intWeight"><span>Weight(kg):</span>
+                    <input onChange={inputChange} type="text" name='interWeight' value={interWeight} className="WeightInputPageContainer__Input"/>
                     </label>
-                    <label htmlFor="userWantWeight"><span>Your desirable weight(kg):</span>
-                    <input onChange={inputChange} type="text" name='desirableWeight' value={desirableWeight} className="WeightInputPageContainer__Input"/>
+                    <label htmlFor="userDate"><span>Date:</span>
+                    <input onChange={inputChange} type="text" name='date' value={date} className="WeightInputPageContainer__Input"/>
                     </label>
-                    <label htmlFor="userHeight"><span>Your height(cm):</span>
-                    <input onChange={inputChange} type="text" name='currentHeight' value={currentHeight} className="WeightInputPageContainer__Input"/>
+                    <label htmlFor="userTime"><span>Time:</span>
+                    <input onChange={inputChange} type="text" name='time' value={time} className="WeightInputPageContainer__Input"/>
                     </label>
-                    <button onClick={toggleModal} type='submit' className="WeightInputPageContainer__Button">Save</button>
+                    <button onClick={toggleModal} data-name='intermediate' type='submit' className="WeightInputPageContainer__Button">Save</button>
                 </form>
-                    <button onClick={toggleModal} data-name='intermediate' disabled={dataArr.length?false:true} type='button'className="WeightInputPageContainer__Button">Cancel</button>
+                    <button onClick={toggleModal} data-name='intermediate' type='button'className="WeightInputPageContainer__Button">Cancel</button>
             </div>
         </div>
     );

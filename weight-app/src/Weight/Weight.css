@@ -4,6 +4,7 @@
     position: absolute;
     z-index: 9;
     right: 0;
+    width: 100vw;
 }
 
 .WeightInputPage--moveLeft {
@@ -20,13 +21,13 @@
     margin-top: 0;
     font-family: cursive;
 }
-.WeightInputPage__Text:before {
-    content: '<';
+.WeightInputPage__Text:after {
+    content: '>';
     display: inline-block;
     
 }
 .WeightInputPageButton--name {
-    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .WeightInputPageContainer__Form {
@@ -68,6 +69,8 @@
 .WeightInputPageContainer__Form button{
     margin-top: 3rem;
 }
+
+
 
 @keyframes moveLeftW {
     from {
