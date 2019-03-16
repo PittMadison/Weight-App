@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import StartPage from '../StartPage/StartPage';
 import StartInputPage from '../StartInputPage/StartInputPage';
+import Weight from '../Weight/Weight'
 import BMI from '../BMI/BMI'
 import Header from '../Header/Header';
+import History from '../History/History';
 
 
 class App extends Component {
@@ -11,6 +13,7 @@ class App extends Component {
   state = {
     start: false,
     modal: true,
+    intermediate: false,
     dataArr: [],
     currentWeight: '',
     desirableWeight: '',
@@ -59,19 +62,20 @@ class App extends Component {
       BM: this.countBMI(this.state.currentWeight, this.state.currentHeight)
     }
 
-    this.setState (prev=>({
+    this.setState ({
       BM: this.countBMI(this.state.currentWeight, this.state.currentHeight),
       dataArr: [newObj ],
       currentWeight: '',
       desirableWeight: '',
       currentHeight: '',
-    }))
-    localStorage.setItem('userWeight', JSON.stringify(newObj))
+    },()=>localStorage.setItem('userWeight', JSON.stringify(newObj)))
+    
   }
 
-  toggleModal = () => {
+  toggleModal = (e) => {
+    let name = e.target.dataset.name
     this.setState({
-      modal: !this.state.modal
+      [name]: !this.state[name]
     })
   }
 
@@ -84,14 +88,16 @@ class App extends Component {
 
 
   render() {
-    const {start, modal, currentWeight, desirableWeight, currentHeight, BM, dataArr} = this.state;
+    const {start, modal, intermediate, currentWeight, desirableWeight, currentHeight, BM, dataArr} = this.state;
      
     return (
       <div className='App'>
-        <StartPage startWeighing={this.startWeighing} start={start}></StartPage>
+        <StartPage toggleModal={this.toggleModal} start={start}></StartPage>
         <StartInputPage dataArr={dataArr} modal={modal} toggleModal={this.toggleModal} currentWeight={currentWeight} desirableWeight={desirableWeight} currentHeight={currentHeight} collectData={this.collectData} inputChange={this.inputChange}/>
-        <Header toggleModal={this.toggleModal}/>
+        <Weight dataArr={dataArr} intermediate={intermediate} toggleModal={this.toggleModal} currentWeight={currentWeight} desirableWeight={desirableWeight} currentHeight={currentHeight} collectData={this.collectData} inputChange={this.inputChange}/>        
+        <Header toggleModal={this.toggleModal} modal={modal} intermediate={intermediate}/>
         <BMI BM={BM} dataArr={dataArr}/>
+        <History/>
       </div>
     );
   }

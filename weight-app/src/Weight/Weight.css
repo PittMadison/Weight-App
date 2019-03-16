@@ -1,0 +1,87 @@
+.WeightInputPage {
+    background-color: #eefc9f;
+    height: 100vh;
+    position: absolute;
+    z-index: 9;
+    right: 0;
+}
+
+.WeightInputPage--moveLeft {
+    animation: moveLeftW 1s forwards ease-in;
+}
+.WeightInputPage--moveRight {
+    animation: moveRightW 1s forwards ease-in;
+}
+.WeightInputPage__Text {
+    width: 97%;
+    padding: 1%;
+    text-align: center;
+    border: .1rem solid #26381f;
+    margin-top: 0;
+    font-family: cursive;
+}
+.WeightInputPage__Text:before {
+    content: '<';
+    display: inline-block;
+    
+}
+.WeightInputPageButton--name {
+    margin-left: 1rem;
+}
+
+.WeightInputPageContainer__Form {
+    margin-top: 3rem;
+}
+
+.WeightInputPageContainer__Form label {
+    display: flex;
+    justify-content: space-between;
+    width: 97%;
+    margin: 0 auto;
+    font-family: cursive;
+
+}
+
+.WeightInputPageContainer__Form label:not(:first-child) {
+    margin-top: 1rem;
+}
+
+
+.WeightInputPageContainer__Input {
+    margin-left: auto;
+    width: 35%;
+}
+
+.WeightInputPageContainer__Button {
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+    font-family: cursive;
+
+}
+
+.WeightInputPage__Container button{
+    margin-top: .5rem;
+}
+
+
+.WeightInputPageContainer__Form button{
+    margin-top: 3rem;
+}
+
+@keyframes moveLeftW {
+    from {
+        right: 0rem;
+    }
+    to {
+        right: -30rem;
+    }
+}
+@keyframes moveRightW {
+    from {
+        right: -30rem;
+    }
+    to {
+        right: 0rem;
+    }
+}

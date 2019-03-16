@@ -16,9 +16,9 @@ const StartInputPage = ({modal, currentWeight, desirableWeight, currentHeight, c
                     <label htmlFor="userHeight"><span>Your height(cm):</span>
                     <input onChange={inputChange} type="text" name='currentHeight' value={currentHeight} className="StartInputPageContainer__Input"/>
                     </label>
-                    <button onClick={toggleModal} type='submit' className="StartInputPageContainer__Button">Save</button>
+                    <button onClick={toggleModal} type='submit' data-name='modal' className="StartInputPageContainer__Button">Save</button>
                 </form>
-                    <button onClick={toggleModal} disabled={dataArr.length?false:true} type='button'className="StartInputPageContainer__Button">Cancel</button>
+                    <button onClick={toggleModal} data-name='modal' disabled={dataArr.length?false:true} type='button'className="StartInputPageContainer__Button">Cancel</button>
             </div>
         </div>
     );

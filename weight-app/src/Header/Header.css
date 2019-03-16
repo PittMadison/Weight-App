@@ -9,11 +9,21 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
 }
 
-.PlusButton {
+.RightButton {
     display: block;
     margin-left: auto;
+    font-family: inherit;
+    border-radius: 10rem;
+    color: #26381f;
+}
+
+.LeftButton {
+    display: block;
+    margin-right: auto;
     font-family: inherit;
     border-radius: 10rem;
     color: #26381f;
