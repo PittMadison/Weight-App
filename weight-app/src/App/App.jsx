@@ -102,6 +102,11 @@ class App extends Component {
       [name]: !this.state[name]
     })
   }
+  
+  dayPickerValue = (day) =>{
+    this.setState({
+      date: day.toLocaleDateString()})
+  }
 
   // BMI ==================================
 
@@ -116,12 +121,12 @@ class App extends Component {
      
     return (
       <div className='App'>
-        {/* <StartPage toggleModal={this.toggleModal} start={start}></StartPage> */}
-        {/* <StartInputPage dataArr={dataArr} modal={modal} toggleModal={this.toggleModal} currentWeight={currentWeight} desirableWeight={desirableWeight} currentHeight={currentHeight} collectData={this.collectData} inputChange={this.inputChange}/> */}
-        <Weight intArr={intArr} interWeight={interWeight} date={date} time={time} intermediate={intermediate} toggleModal={this.toggleModal} collectData={this.collectData} inputChange={this.inputChange}/>        
+        <StartPage toggleModal={this.toggleModal} start={start}></StartPage>
+        <StartInputPage dataArr={dataArr} modal={modal} toggleModal={this.toggleModal} currentWeight={currentWeight} desirableWeight={desirableWeight} currentHeight={currentHeight} collectData={this.collectData} inputChange={this.inputChange}/>
+        <Weight dayPickerValue={this.dayPickerValue} intArr={intArr} interWeight={interWeight} date={date} time={time} intermediate={intermediate} toggleModal={this.toggleModal} collectData={this.collectData} inputChange={this.inputChange}/>        
         <Header toggleModal={this.toggleModal} modal={modal} intermediate={intermediate}/>
         <BMI BM={BM} dataArr={dataArr}/>
-        <History/>
+        {/* <History/> */}
       </div>
     );
   }

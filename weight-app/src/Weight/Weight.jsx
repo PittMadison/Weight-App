@@ -1,9 +1,18 @@
 import React from 'react';
 import './Weight.css';
-import DayPickerInput from 'rea'
 
-const Weight = ({intermediate, interWeight, date, time, collectData, inputChange, toggleModal}) => {
-    
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
+
+import MomentLocaleUtils, {
+    formatDate,
+  } from 'react-day-picker/moment';
+  
+import 'moment/locale/uk';
+
+
+const Weight = ({intermediate, interWeight, date, time, collectData, inputChange, toggleModal, dayPickerValue}) => {
+    console.log(DayPickerInput)
     return (
         <div className={intermediate?'WeightInputPage WeightInputPage--moveRight':'WeightInputPage WeightInputPage--moveLeft'}>
             <p className='WeightInputPage__Text'><span className='WeightInputPageButton--name'>Set new progress breakpoint</span></p>
@@ -13,7 +22,8 @@ const Weight = ({intermediate, interWeight, date, time, collectData, inputChange
                     <input onChange={inputChange} type="text" name='interWeight' value={interWeight} className="WeightInputPageContainer__Input"/>
                     </label>
                     <label htmlFor="userDate"><span>Date:</span>
-                    <input onChange={inputChange} type="text" name='date' value={date} className="WeightInputPageContainer__Input"/>
+                    <DayPickerInput inputProps={{ style: { width: 108.637} }} onDayChange={dayPickerValue} formatDate={formatDate} format="L" placeholder={`${formatDate(new Date(), 'L', 'uk')}`} dayPickerProps={{locale: 'uk', localeUtils: MomentLocaleUtils,}}/>
+
                     </label>
                     <label htmlFor="userTime"><span>Time:</span>
                     <input onChange={inputChange} type="text" name='time' value={time} className="WeightInputPageContainer__Input"/>
@@ -27,3 +37,4 @@ const Weight = ({intermediate, interWeight, date, time, collectData, inputChange
 };
 
 export default Weight;
+
