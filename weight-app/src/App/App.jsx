@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
 import StartPage from '../StartPage/StartPage';
 import StartInputPage from '../StartInputPage/StartInputPage';
 import Weight from '../Weight/Weight'
 import BMI from '../BMI/BMI'
 import Header from '../Header/Header';
 import History from '../History/History';
+import {NavLink, Route, Switch} from 'react-router-dom';
+import './App.css';
+
 
 
 class App extends Component {
@@ -123,9 +125,18 @@ class App extends Component {
       <div className='App'>
         <StartPage toggleModal={this.toggleModal} start={start}></StartPage>
         <StartInputPage dataArr={dataArr} modal={modal} toggleModal={this.toggleModal} currentWeight={currentWeight} desirableWeight={desirableWeight} currentHeight={currentHeight} collectData={this.collectData} inputChange={this.inputChange}/>
+        
         <Weight dayPickerValue={this.dayPickerValue} intArr={intArr} interWeight={interWeight} date={date} time={time} intermediate={intermediate} toggleModal={this.toggleModal} collectData={this.collectData} inputChange={this.inputChange}/>        
         <Header toggleModal={this.toggleModal} modal={modal} intermediate={intermediate}/>
-        <BMI BM={BM} dataArr={dataArr}/>
+        <NavLink className='MenuLink' to='/'>BMI</NavLink>
+        <NavLink className='MenuLink' to='/history'>HISTORY</NavLink>
+        <NavLink className='MenuLink' to='/chart'>CHART</NavLink>
+        <Switch>
+          <Route exact path='/'render = {props => <BMI BM={BM} dataArr={dataArr}/>}/>
+          <Route path='/history' component={History}/>
+          {/* <Route path='/chart' component={Chart}/> */}
+        </Switch>
+        {/* <BMI BM={BM} dataArr={dataArr}/> */}
         {/* <History/> */}
       </div>
     );
